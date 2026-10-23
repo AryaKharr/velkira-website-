@@ -3,7 +3,7 @@
 Landing page statis berbahasa Indonesia. Tidak membutuhkan instalasi dependency atau proses build.
 
 ## Menjalankan
-Buka index.html di browser, atau dari folder ini jalankan: npx --yes http-server . -p 4173 (membutuhkan Node dan internet saat instalasi pertama). Semua aset utama lokal; font eksternal memiliki fallback Arial.
+Buka `index.html` di browser, atau dari folder ini jalankan: `npx --yes http-server . -p 4173` (membutuhkan Node dan internet saat instalasi pertama). Semua aset utama lokal; font eksternal memiliki fallback Arial.
 
 ## Mengubah isi
 - index.html: teks, layanan, FAQ, dan detail konsep.
@@ -15,7 +15,7 @@ Buka index.html di browser, atau dari folder ini jalankan: npx --yes http-server
 Kontak umum tetap dapat dibuka tanpa JavaScript. Jika mengganti nomor, perbarui juga fallback WhatsApp di index.html. Detail konsep tampil inline tanpa JavaScript dan sebagai modal dengan JavaScript. Tidak ada AI aktif, penyimpanan, formulir, atau pengiriman otomatis.
 
 ## Deploy
-Upload index.html, styles.css, script.js, config.js dan folder assets ke hosting statis, atau pilih direktori ini sebagai publish directory tanpa build. Tambahkan canonical dan URL gambar OG absolut setelah domain final tersedia. Tidak ada push GitHub atau deploy yang dilakukan.
+Upload index.html, styles.css, script.js, animations.js, config.js dan folder assets ke hosting statis, atau pilih direktori ini sebagai publish directory tanpa build. Tambahkan canonical dan URL gambar OG absolut setelah domain final tersedia. Repository: [VELKIRA-AGENCY](https://github.com/aryapulosari-design/VELKIRA-AGENCY). Push ke GitHub tidak otomatis melakukan deploy hosting.
 
 ## Dokumentasi
 Lihat dokumen/ untuk keputusan desain, riwayat perubahan, pengujian, dan kebutuhan rilis. Untuk perubahan berikutnya, tambahkan catatan bertanggal beserta file yang berubah dan hasil pemeriksaan.
