@@ -18,7 +18,7 @@
     running.clear();
   }
   document.querySelectorAll('.hero-copy > *').forEach((element, index) => enter(element, index * 75));
-  enter(document.querySelector('.hero-art'), 180);
+  enter(document.querySelector('.hero-media'), 180);
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;

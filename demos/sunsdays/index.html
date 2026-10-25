@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#526775">
+  <meta name="description" content="SunDays — kopi enak, ritme sendiri. Jelajahi kopi, minuman, dan bites dalam proyek konsep cafe oleh VELKIRA.">
+  <meta property="og:title" content="SunDays — Kopi enak. Ritme sendiri.">
+  <meta property="og:description" content="Sedikit kopi. Banyak cerita. Sebuah konsep cafe oleh VELKIRA.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:image" content="assets/hero-v1.jpg">
+  <title>SunDays — Kopi enak. Ritme sendiri.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/hero-v1.jpg" imagesrcset="assets/hero-mobile-v1.jpg 768w, assets/hero-v1.jpg 1536w" imagesizes="100vw">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#menu">Langsung ke menu</a>
+  <header class="site-header" id="awal">
+    <a class="wordmark" href="#awal" aria-label="SunDays, kembali ke awal">SunDays<span class="brand-sun" aria-hidden="true">✳</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-nav" aria-label="Navigasi utama">
+      <a href="#menu">Menu</a><a href="#cerita">Cerita kami</a><a href="#suasana">Suasana</a>
+    </nav>
+    <a class="header-cta" href="#menu">Temukan favoritmu <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <picture class="hero-poster"><source media="(max-width: 640px)" srcset="assets/hero-mobile-v1.jpg"><img src="assets/hero-v1.jpg" width="1536" height="1024" fetchpriority="high" alt=""></picture>
+      <video class="hero-video" muted loop playsinline preload="none" poster="assets/hero-v1.jpg" data-src="assets/hero-v1.webm" aria-hidden="true" tabindex="-1"></video>
+      <div class="hero-shade"></div>
+      <div class="hero-top"><span>GOOD COFFEE. YOUR PACE.</span><span class="concept"><i aria-hidden="true"></i> A cafe concept by VELKIRA</span></div>
+      <div class="hero-content">
+        <p class="eyebrow light">BUAT HARI YANG TERASA MILIKMU.</p>
+        <h1 id="hero-title">Kopi enak.<br><em>Ritme sendiri.</em></h1>
+        <div class="hero-bottom"><div><p>Pelan dulu. Nikmati yang ada di cangkirmu.<br>Hari ini nggak perlu buru-buru.</p><a class="button button-cream" href="#menu">Lihat menu <span aria-hidden="true">↗</span></a></div><a class="scroll-cue" href="#andalan" aria-label="Jelajahi pilihan SunDays"><span aria-hidden="true">↓</span> SCROLL & SIP</a></div>
+      </div>
+      <button class="video-toggle" type="button" hidden aria-label="Putar video pembuka"><span class="video-icon" aria-hidden="true">▶</span><span class="video-label">Putar video</span></button>
+      <span class="hero-index" aria-hidden="true">01 — A LITTLE DAILY ESCAPE</span>
+    </section>
+    <div class="brand-strip" aria-label="Filosofi SunDays"><span>Kopi yang pas.</span><span class="strip-star" aria-hidden="true">✳</span><span>Obrolan yang lepas.</span><span class="strip-star" aria-hidden="true">✳</span><span>Hari yang lebih bebas.</span><span class="strip-star" aria-hidden="true">✳</span></div>
+    <section class="section wrap" id="andalan" aria-labelledby="featured-title">
+      <div class="section-head"><div><p class="eyebrow">01 / PILIHAN SUNDAYS</p><h2 id="featured-title">Boleh mulai<br>dari <em>yang ini.</em></h2></div><div class="section-aside"><p>Tiga pilihan untuk menemani<br>versi terbaik dari harimu.</p><a class="text-link" href="#menu">Jelajahi semua menu <span aria-hidden="true">↗</span></a></div></div>
+      <div class="featured-grid">
+        <article class="featured-card"><div class="featured-image"><img src="assets/blue-hour-latte-v1.jpg" width="512" height="640" loading="lazy" alt="Iced latte dengan lapisan espresso dan susu dalam gelas bertekstur"><span class="image-tag">THE SLOW MORNING</span></div><div class="product-heading"><h3>Blue Hour Latte</h3><span>Rp32.000</span></div><p>Lembut, creamy, dan nggak perlu banyak alasan.</p></article>
+        <article class="featured-card"><div class="featured-image"><img src="assets/scarlet-berry-v1.jpg" width="512" height="640" loading="lazy" alt="Minuman berry merah dengan es dan potongan stroberi"><span class="image-tag">A LITTLE PICK-ME-UP</span><span class="editorial-sticker" aria-hidden="true">a sip<br>of joy!</span></div><div class="product-heading"><h3>Scarlet Berry</h3><span>Rp30.000</span></div><p>Segar, cerah, seceria rencana spontanmu.</p></article>
+        <article class="featured-card"><div class="featured-image"><img src="assets/croissant-v1.jpg" width="512" height="640" loading="lazy" alt="Butter croissant keemasan di atas piring keramik"><span class="image-tag">YOUR COFFEE'S PLUS ONE</span></div><div class="product-heading"><h3>Butter Croissant</h3><span>Rp26.000</span></div><p>Renyah di luar, lembut di dalam. Pas buat jeda.</p></article>
+      </div>
+    </section>
+    <section class="menu-section section" id="menu" aria-labelledby="menu-title">
+      <div class="wrap"><div class="section-head"><div><p class="eyebrow">02 / THE GOOD STUFF</p><h2 id="menu-title">Mood apa<br><em>hari ini?</em></h2></div><div class="section-aside"><p>Dari tegukan pertama<br>sampai remah terakhir.</p><p class="sample-note">Menu dan harga merupakan contoh<br>untuk proyek konsep.</p></div></div>
+        <div class="menu-toolbar"><div class="filters" role="group" aria-label="Filter kategori menu" hidden><button type="button" data-filter="all" aria-pressed="true">Semua <span>09</span></button><button type="button" data-filter="coffee" aria-pressed="false">Coffee</button><button type="button" data-filter="non-coffee" aria-pressed="false">Non-Coffee</button><button type="button" data-filter="bites" aria-pressed="false">Bites</button></div><p class="result-count" role="status" aria-live="polite" aria-atomic="true">9 menu untuk dijelajahi</p></div>
+        <div class="menu-grid">
+          <article class="menu-card" id="espresso" data-category="coffee"><img src="assets/espresso-v1.jpg" alt="Espresso dalam cangkir putih di atas meja biru" width="512" height="640" loading="lazy"><div><span class="category-label">COFFEE</span><h3>Espresso</h3><p>Kopi pekat dengan aroma hangat dan akhir yang berkesan.</p><data value="22000">Rp22.000</data></div></article>
+          <article class="menu-card" id="iced-americano" data-category="coffee"><img src="assets/americano-v1.jpg" alt="Segelas iced Americano dengan es batu" width="512" height="640" loading="lazy"><div><span class="category-label">COFFEE</span><h3>Iced Americano</h3><p>Espresso dan air dingin. Sederhana, segar, tepat sasaran.</p><data value="26000">Rp26.000</data></div></article>
+          <article class="menu-card" id="blue-hour-latte" data-category="coffee"><img src="assets/blue-hour-latte-v1.jpg" alt="Iced latte dengan perpaduan susu dan espresso" width="512" height="640" loading="lazy"><div><span class="category-label">COFFEE</span><h3>Blue Hour Latte</h3><p>Espresso bertemu susu, untuk jeda yang lebih lembut.</p><data value="32000">Rp32.000</data></div></article>
+          <article class="menu-card" id="matcha-latte" data-category="non-coffee"><img src="assets/matcha-v1.jpg" alt="Iced matcha latte hijau dalam gelas bening" width="512" height="640" loading="lazy"><div><span class="category-label">NON-COFFEE</span><h3>Matcha Latte</h3><p>Matcha yang earthy dan susu lembut dalam satu gelas.</p><data value="34000">Rp34.000</data></div></article>
+          <article class="menu-card" id="chocolate" data-category="non-coffee"><img src="assets/chocolate-v1.jpg" alt="Minuman cokelat dingin dengan taburan cokelat" width="512" height="640" loading="lazy"><div><span class="category-label">NON-COFFEE</span><h3>Chocolate</h3><p>Cokelat yang kaya rasa. Nyaman dari tegukan pertama.</p><data value="32000">Rp32.000</data></div></article>
+          <article class="menu-card" id="scarlet-berry" data-category="non-coffee"><img src="assets/scarlet-berry-v1.jpg" alt="Minuman berry merah segar di atas meja biru" width="512" height="640" loading="lazy"><div><span class="category-label">NON-COFFEE</span><h3>Scarlet Berry</h3><p>Sentuhan buah berry yang segar untuk siang yang cerah.</p><data value="30000">Rp30.000</data></div></article>
+          <article class="menu-card" id="butter-croissant" data-category="bites"><img src="assets/croissant-v1.jpg" alt="Croissant berlapis dengan warna keemasan" width="512" height="640" loading="lazy"><div><span class="category-label">BITES</span><h3>Butter Croissant</h3><p>Lapisan buttery yang renyah. Teman setia secangkir kopi.</p><data value="26000">Rp26.000</data></div></article>
+          <article class="menu-card" id="cinnamon-roll" data-category="bites"><img src="assets/cinnamon-v1.jpg" alt="Cinnamon roll dengan lapisan icing" width="512" height="640" loading="lazy"><div><span class="category-label">BITES</span><h3>Cinnamon Roll</h3><p>Aroma kayu manis, adonan lembut, dan manis yang pas.</p><data value="28000">Rp28.000</data></div></article>
+          <article class="menu-card" id="chocolate-cookie" data-category="bites"><img src="assets/cookie-v1.jpg" alt="Cookie keemasan dengan potongan cokelat" width="512" height="640" loading="lazy"><div><span class="category-label">BITES</span><h3>Chocolate Cookie</h3><p>Potongan cokelat dalam setiap gigitan kecil yang menyenangkan.</p><data value="24000">Rp24.000</data></div></article>
+        </div>
+      </div>
+    </section>
+    <section class="story-section" id="cerita" aria-labelledby="story-title"><div class="wrap story-grid"><div class="story-copy"><p class="eyebrow light">03 / A LITTLE ABOUT US</p><h2 id="story-title">Nggak semua<br>harus <em>cepat.</em></h2><span class="story-sun" aria-hidden="true">✳</span><p>SunDays berangkat dari satu ide sederhana: setiap hari layak punya jeda yang menyenangkan. Secangkir kopi, obrolan tanpa agenda, atau waktu sendiri yang nggak perlu dijelaskan.</p><p>Dalam konsep ini, kami membayangkan sudut kota yang terasa sedikit lebih hangat. Tempat untuk datang apa adanya, memilih rasa yang kamu suka, dan menikmati ritmemu sendiri. Karena hari yang baik nggak selalu soal melakukan lebih banyak. Kadang, cukup menikmati yang ada di depan mata.</p><span class="story-signature">Take a sip. Take your time.</span></div><figure class="story-visual"><img src="assets/interior-v1.jpg" width="600" height="760" loading="lazy" alt="Visual konsep interior SunDays dengan counter biru dan kursi krom disinari matahari"><figcaption>A space for your kind of days. <span aria-hidden="true">↗</span></figcaption><span class="story-note">SLOW DAYS,<br>GOOD DAYS.</span></figure></div></section>
+    <section class="section wrap" id="suasana" aria-labelledby="gallery-title"><div class="section-head"><div><p class="eyebrow">04 / SUNLIT LITTLE MOMENTS</p><h2 id="gallery-title">Sedikit sudut.<br><em>Banyak cerita.</em></h2></div><p class="section-aside">Cahaya hangat, aroma kopi,<br>dan ruang untuk jadi diri sendiri.<br><span class="sample-note">Visual ilustratif untuk konsep cafe.</span></p></div><div class="gallery"><figure><img src="assets/interior-v1.jpg" width="600" height="760" loading="lazy" alt="Cahaya pagi masuk ke interior cafe dengan kursi krom"><figcaption><span>01</span> Find your little corner.</figcaption></figure><figure><img src="assets/espresso-machine-v1.jpg" width="600" height="760" loading="lazy" alt="Detail espresso mengalir dari mesin kopi ke cangkir"><figcaption><span>02</span> Made for the moment.</figcaption></figure><figure><img src="assets/terrace-v1.jpg" width="600" height="760" loading="lazy" alt="Bangku biru dan kursi merah di teras cafe yang disinari matahari"><figcaption><span>03</span> Let the day unfold.</figcaption></figure></div></section>
+    <section class="closing wrap" aria-label="Jelajahi menu"><span aria-hidden="true">✳</span><h2>Hari baik dimulai<br>dari <em>satu tegukan.</em></h2><a class="button button-blue" href="#menu">Temukan minumanmu <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div class="footer-top"><p>GOOD COFFEE.<br>YOUR PACE.</p><a href="#awal" class="back-top">Kembali ke atas <span aria-hidden="true">↑</span></a></div><a class="footer-wordmark" href="#awal" aria-label="SunDays, kembali ke awal">SunDays<span aria-hidden="true">✳</span></a><div class="footer-bottom"><p>© 2026 SunDays · Proyek konsep cafe fiktif.</p><p>Desain & pengembangan oleh <a href="../../index.html#portofolio" data-portfolio>Portfolio VELKIRA ↗</a></p></div><p class="asset-credit">Foto konsep dibuat dengan AI. Menu dan harga adalah contoh; tidak melayani transaksi. <a href="assets/credits.txt">Kredit aset</a></p></div></footer>
+</body>
+</html>

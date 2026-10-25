@@ -1,0 +1,20 @@
+SUNSDAYS — ASSET CREDITS
+25 October 2026
+
+Brand wordmark and favicon: original project graphics, made for SunsDays.
+Photography: AI-generated concept artwork using OpenAI Imagegen for this project.
+These images do not depict a real cafe, actual menu products, or a client project.
+
+hero-v1.jpg / hero-mobile-v1.jpg: generated coffee hero, compressed and cropped.
+hero-v1.webm: 8-second silent camera-movement loop derived from that hero artwork.
+This is animated concept photography, not live-action footage of coffee being poured.
+
+espresso-v1.jpg, americano-v1.jpg, blue-hour-latte-v1.jpg,
+matcha-v1.jpg, chocolate-v1.jpg, scarlet-berry-v1.jpg,
+croissant-v1.jpg, cinnamon-v1.jpg, cookie-v1.jpg,
+interior-v1.jpg, espresso-machine-v1.jpg, terrace-v1.jpg:
+AI-generated photographic contact sheet, cropped into individual optimized assets.
+
+Fonts: system Georgia for editorial headings, Segoe UI for body and UI;
+Apple system fonts and Arial as fallbacks. No font files or remote requests.
+No downloaded stock footage, third-party brand assets, or tracking services are used.
