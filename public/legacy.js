@@ -56,12 +56,21 @@ window.VELKIRA = { whatsapp: '6285704834416', email: '', instagram: '', heroVide
   choice.addEventListener('change', updateContact);
   document.querySelector('#year').textContent = new Date().getFullYear();
   updateContact(); document.body.classList.add('enhanced');
-  if (!window.location.hash || window.location.hash === '#awal') {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
   }
+  if (window.location.hash && window.location.hash !== '#awal') {
+    try {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    } catch (e) {}
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  window.addEventListener('pageshow', () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  });
+  window.addEventListener('load', () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  });
   const spotlightTargets = document.querySelectorAll('.service, .project-visual, .brand-card, .brief-guide');
   spotlightTargets.forEach(card => {
     card.addEventListener('pointermove', e => {
@@ -82,9 +91,9 @@ window.VELKIRA = { whatsapp: '6285704834416', email: '', instagram: '', heroVide
   function enter(element, delay = 0) {
     if (preference.matches) return;
     const animation = element.animate([
-      { opacity: 0, transform: 'translateY(22px)' },
+      { opacity: 0, transform: 'translateY(-14px)' },
       { opacity: 1, transform: 'translateY(0)' }
-    ], { duration: 650, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
+    ], { duration: 600, delay, easing: 'cubic-bezier(.16,1,.3,1)', fill: 'backwards' });
     running.add(animation);
     animation.onfinish = animation.oncancel = () => running.delete(animation);
   }

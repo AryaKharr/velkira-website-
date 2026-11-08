@@ -23,5 +23,26 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
-  return <html lang="id" className={`${inter.variable} ${manrope.variable}`}><body id="awal">{children}</body></html>;
+  return (
+    <html lang="id" className={`${inter.variable} ${manrope.variable}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('scrollRestoration' in history) {
+                history.scrollRestoration = 'manual';
+              }
+              window.scrollTo(0, 0);
+              if (window.location.hash && window.location.hash !== '#awal') {
+                try {
+                  history.replaceState(null, '', window.location.pathname + window.location.search);
+                } catch (e) {}
+              }
+            `,
+          }}
+        />
+      </head>
+      <body id="awal">{children}</body>
+    </html>
+  );
 }
