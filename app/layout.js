@@ -16,7 +16,11 @@ export const metadata = {
   },
 };
 
-export const viewport = { themeColor: '#101b1a' };
+export const viewport = { 
+  themeColor: '#080c0a',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export default function RootLayout({ children }) {
   return <html lang="id" className={`${inter.variable} ${manrope.variable}`}><body id="awal">{children}</body></html>;
