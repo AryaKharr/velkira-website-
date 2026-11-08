@@ -516,55 +516,46 @@ export default function Home() {
         {/* 06 / KONTAK */}
         <section id="kontak" className="contact">
           <div className="wrap">
-            <p className="eyebrow">06 / Mulai Kolaborasi</p>
-            <h2>
-              Punya ide besar?<br />
-              <em>Mari kita wujudkan.</em>
-            </h2>
-            <p>
-              Ceritakan visi proyek Anda, preferensi gaya, dan target waktu peluncuran. Kami akan bantu merumuskan solusi dan estimasi yang paling efisien.
-            </p>
+            <div className="contact-card">
+              <p className="eyebrow">06 / Mulai Kolaborasi</p>
+              <h2>
+                Punya ide besar?<br />
+                <em>Mari kita wujudkan.</em>
+              </h2>
+              <p className="contact-desc">
+                Ceritakan visi proyek, target waktu, dan kebutuhan Anda. Kami siap membantu merumuskan solusi teknis dan estimasi biaya yang transparan.
+              </p>
 
-            <div className="brief-guide">
-              <p className="brief-title">Hal yang membantu diskusi awal kita:</p>
-              <ul>
-                <li>Jenis usaha &amp; tujuan website</li>
-                <li>Fitur utama yang dibutuhkan</li>
-                <li>Referensi visual yang disukai</li>
-                <li>Target waktu peluncuran</li>
-              </ul>
-              <p>Belum ada materi lengkap? Tenang, kita bisa diskusikan konsepnya bersama dari awal.</p>
-            </div>
+              <div className="context-control">
+                <label htmlFor="service-choice">Pilih Layanan yang Ingin Dibahas</label>
+                <select id="service-choice">
+                  <option value="">Kebutuhan proyek secara umum</option>
+                  <option>Website Development</option>
+                  <option>AI Automation</option>
+                  <option>Web/Mobile Solutions</option>
+                  <option>Company Profile</option>
+                  <option>Workflow Assistant</option>
+                  <option>LabaRapi</option>
+                </select>
+              </div>
 
-            <div className="context-control">
-              <label htmlFor="service-choice">Pilih Fokus Kebutuhan Anda</label>
-              <select id="service-choice">
-                <option value="">Kebutuhan proyek secara umum</option>
-                <option>Website Development</option>
-                <option>AI Automation</option>
-                <option>Web/Mobile Solutions</option>
-                <option>Company Profile</option>
-                <option>Workflow Assistant</option>
-                <option>LabaRapi</option>
-              </select>
+              <div className="actions">
+                <a 
+                  id="whatsapp" 
+                  className="button" 
+                  href="https://wa.me/6285704834416?text=Halo%20Velkira%2C%20saya%20ingin%20membahas%20kebutuhan%20proyek%20untuk%20bisnis%20saya." 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                  Hubungi via WhatsApp Bisnis <span>↗</span>
+                </a>
+                <a id="email" className="text-link" hidden>Kirim Email ↗</a>
+              </div>
+              
+              <p className="contact-note" id="contact-status">
+                +62 857 0483 4416 · Rata-rata respons cepat &lt; 2 jam pada jam kerja.
+              </p>
             </div>
-
-            <div className="actions">
-              <a 
-                id="whatsapp" 
-                className="button gold" 
-                href="https://wa.me/6285704834416?text=Halo%20Velkira%2C%20saya%20ingin%20membahas%20kebutuhan%20proyek%20untuk%20bisnis%20saya." 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                Hubungi via WhatsApp Bisnis <span>↗</span>
-              </a>
-              <a id="email" className="text-link" hidden>Kirim Email ↗</a>
-            </div>
-            
-            <p className="contact-note" id="contact-status">
-              +62 857 0483 4416 · Rata-rata respons cepat &lt; 2 jam pada jam kerja.
-            </p>
           </div>
         </section>
 

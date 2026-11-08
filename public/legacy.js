@@ -56,6 +56,12 @@ window.VELKIRA = { whatsapp: '6285704834416', email: '', instagram: '', heroVide
   choice.addEventListener('change', updateContact);
   document.querySelector('#year').textContent = new Date().getFullYear();
   updateContact(); document.body.classList.add('enhanced');
+  if (!window.location.hash || window.location.hash === '#awal') {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }
   const spotlightTargets = document.querySelectorAll('.service, .project-visual, .brand-card, .brief-guide');
   spotlightTargets.forEach(card => {
     card.addEventListener('pointermove', e => {
