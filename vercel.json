@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/demos/sunsdays/index.html",
+      "destination": "/demos/sunsdays/",
+      "permanent": true
+    }
+  ]
+}
