@@ -1,20 +1,26 @@
 # Hosting gratis Velkira + SunDays
 
-Diperiksa pada 25 Oktober 2026. Pilihan yang dipakai: **Cloudflare Pages, paket Free, dengan Direct Upload**. Website ini HTML/CSS/JavaScript statis, sehingga paket unggahan yang disiapkan sudah bisa langsung diterbitkan tanpa build atau database.
+Diperbarui pada 25 Oktober 2026 setelah migrasi Next.js. Pilihan yang dipakai: **Cloudflare Pages, paket Free, dengan Direct Upload**. Source sekarang memakai Next.js; jalankan build lokal terlebih dahulu. Hasilnya tetap HTML/CSS/JavaScript statis dan tidak membutuhkan database.
 
 ## 1. Siapkan file
 
 Gunakan `release/velkira-sundays-hosting.zip`. ZIP ini memuat halaman agency, aset, dan demo coffee shop SunDays dalam satu website. `index.html` berada langsung di akar ZIP. Folder .git, dokumen internal, pengujian, dan arsip tidak dimasukkan.
 
+Sebelum membuat atau memperbarui ZIP:
+
+```sh
+npm ci
+npm run build
+npm test
+```
+
+Lalu jalankan `.\package-site.ps1` melalui PowerShell. ZIP diambil dari folder `out/`, bukan folder source. Jika menggunakan Git integration sebagai pengganti unggahan manual, build command adalah `npm run build` dan build output directory adalah `out`.
+
 Struktur penting:
 
 ```text
 index.html
-styles.css
-script.js
-animations.js
-hero-video.js
-config.js
+_next/
 assets/
 demos/
   sunsdays/
@@ -43,7 +49,7 @@ Urutan dan label menu dapat berbeda menurut pembaruan dashboard. [Panduan resmi 
 - Coba filter menu Coffee, Non-Coffee, dan Bites.
 - Klik **Portfolio VELKIRA** di footer demo; harus kembali ke portofolio agency.
 - Coba menu navigasi, FAQ, serta jeda/putar video.
-- Pastikan WhatsApp mengarah ke nomor bisnis yang benar. Nomor saat ini berasal dari config.js dan fallback index.html.
+- Pastikan WhatsApp mengarah ke nomor bisnis yang benar. Nomor saat ini berasal dari app/content.mjs.
 
 Tidak perlu membuat hosting kedua untuk SunDays. Alamatnya berada di bawah domain yang sama, yaitu `/demos/sunsdays/index.html`; hosting dapat menampilkan URL bersih tanpa ekstensi HTML.
 
@@ -53,7 +59,7 @@ Gunakan subdomain `pages.dev` agar tidak perlu membeli domain. Domain seperti `v
 
 ## 5. Memperbarui website
 
-Setelah mengedit file lokal, buat ulang ZIP dari folder Velkira-Website memakai PowerShell:
+Setelah mengedit file lokal, jalankan `npm run build` dan `npm test`, lalu buat ulang ZIP dari folder Velkira-Website memakai PowerShell:
 
 ```powershell
 .\package-site.ps1
@@ -61,7 +67,7 @@ Setelah mengedit file lokal, buat ulang ZIP dari folder Velkira-Website memakai 
 
 Masuk ke proyek Pages yang sama, pilih **Create a new deployment**, pilih **Production**, unggah ZIP terbaru, lalu deploy. Setelah itu refresh browser dengan Ctrl+Shift+R bila masih melihat tampilan lama.
 
-Skrip lokal package-site.ps1 membuat ulang ZIP dengan susunan folder yang sesuai dan memeriksa file wajib serta batas ukuran. Jika kebijakan PowerShell komputer memblokir skrip, gunakan File Explorer untuk menyalin enam file utama, folder assets, dan folder demos ke satu folder unggahan baru, lalu unggah folder tersebut melalui dashboard. Pertahankan index.html di akar folder unggahan.
+Skrip lokal package-site.ps1 membuat ulang ZIP dengan susunan folder yang sesuai dan memeriksa file wajib serta batas ukuran. Jika kebijakan PowerShell komputer memblokir skrip, unggah folder `out` langsung melalui dashboard. Pertahankan isi out, termasuk _next/, assets/, dan demos/.
 
 Direct Upload memakai pembaruan manual. Untuk deployment otomatis dari GitHub nanti, buat proyek Pages baru dengan Git integration; proyek Direct Upload tidak dapat langsung dialihkan ke metode tersebut.
 

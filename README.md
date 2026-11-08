@@ -1,34 +1,62 @@
-# VELKIRA-AGENCY
+# Velkira
 
-Landing page statis berbahasa Indonesia. Tidak membutuhkan instalasi dependency atau proses build.
+Website agency berbahasa Indonesia dengan Next.js App Router dan React. Hasil build berupa file statis, sehingga tetap bisa diunggah ke Cloudflare Pages. SunDays berjalan di bawah domain yang sama pada `/demos/sunsdays/index.html`.
 
 ## Menjalankan
-Buka `index.html` di browser, atau dari folder ini jalankan: `npx --yes http-server . -p 4173` (membutuhkan Node dan internet saat instalasi pertama). Semua aset utama lokal; font eksternal memiliki fallback Arial.
 
-## Mengubah isi
-- index.html: teks, layanan, FAQ, dan detail konsep.
-- styles.css: palet forest, lime, dan mist blue pada :root serta layout responsif.
-- config.js: WhatsApp internasional tanpa +, email, dan data publik lainnya. Email kosong disembunyikan. Instagram belum ditampilkan.
-- assets/brand/mark.svg: monogram interpretasi sederhana, bukan ekstraksi logo final.
-- assets/concepts/: tiga ilustrasi antarmuka SVG asli yang dibuat untuk proyek ini.
-- demos/sunsdays/: salinan website konsep coffee shop SunDays, ditautkan dari kartu pertama portofolio. Tautan kembali menuju portofolio Velkira. Jika proyek sumber SunDays diperbarui, sinkronkan salinan demo ini.
+Gunakan Node.js 20.9 atau lebih baru.
 
-Kontak umum tetap dapat dibuka tanpa JavaScript. Jika mengganti nomor, perbarui juga fallback WhatsApp di index.html. Detail konsep tampil inline tanpa JavaScript dan sebagai modal dengan JavaScript. Tidak ada AI aktif, penyimpanan, formulir, atau pengiriman otomatis.
+```sh
+npm ci
+npm run dev
+```
 
-## Deploy
+Buka http://127.0.0.1:3000. Perubahan konten dan komponen langsung diperbarui saat pengembangan.
 
-Paket unggahan siap di `release/velkira-sundays-hosting.zip`. Panduan hosting gratis lengkap: [Cloudflare Pages](dokumen/10-hosting-gratis-cloudflare.md). Buat ulang ZIP setelah mengubah file website; folder release diabaikan Git.
-Upload index.html, styles.css, script.js, animations.js, hero-video.js, config.js serta folder assets dan demos ke hosting statis, atau pilih direktori ini sebagai publish directory tanpa build. Tambahkan canonical dan URL gambar OG absolut setelah domain final tersedia. Repository: [VELKIRA-AGENCY](https://github.com/aryapulosari-design/VELKIRA-AGENCY). Push ke GitHub tidak otomatis melakukan deploy hosting.
+## Mengedit
 
-## Dokumentasi
-Lihat dokumen/ untuk keputusan desain, riwayat perubahan, pengujian, dan kebutuhan rilis. Untuk perubahan berikutnya, tambahkan catatan bertanggal beserta file yang berubah dan hasil pemeriksaan.
+- `app/page.js`: susunan halaman dan proyek utama SunDays.
+- `app/content.mjs`: nomor WhatsApp, email, layanan, langkah kerja, dan FAQ.
+- `app/globals.css`: tipografi, palet Forest/Lime/Chalk/Mist/Sage, layout, dan breakpoint.
+- `app/components/`: navigasi, pemutar video, dan pilihan layanan kontak.
+- `app/layout.js`: metadata dan font Manrope/Inter melalui next/font. Font disajikan lokal setelah build; build pertama memerlukan akses unduhan font.
+- `public/assets/brand/`: monogram dan papan palet Instagram.
+- `public/demos/sunsdays/`: demo coffee shop mandiri; sinkronkan folder ini bila proyek SunDays sumber berubah. Link baliknya `../../#portofolio`.
 
-## Video pembuka
+SunDays merupakan proyek konsep internal. Foto konsep dibuat dengan AI, menu/harga ilustratif, dan tidak ada transaksi. Informasi tersebut tetap dicantumkan; perombakan visual menghapus slogan umum dan dekorasi yang tidak membantu, bukan kredit sumber aset.
 
-Video abstrak lokal `assets/video/blue-waves.mp4` sudah terhubung melalui `heroVideo` pada config.js. Video 7 detik dari Mixkit berukuran sekitar 2,6 MB; sumber dan lisensi tercatat di `assets/video/SOURCE.md`. Ini footage dekoratif, bukan showreel atau karya klien. Untuk mengganti, isi path MP4 baru dan perbarui gambar poster di index.html. Gunakan loop singkat yang sudah dikompres, idealnya tanpa audio. Video diputar muted dengan kontrol jeda/putar; reduced motion dan hemat data mencegah autoplay. Kegagalan video menampilkan poster kembali. Uji logika dengan `node --test tests/hero-video.test.cjs`.
+## Build, pengujian, dan hosting
 
-Judul menggunakan Manrope dan teks menggunakan Inter dari Google Fonts dengan fallback Arial. Palet khusus Velkira memakai Forest, Electric Lime, Chalk, Mist Blue, dan Sage. Panduan warna dan pemakaian Instagram ada di dokumen/09-identitas-velkira.md.
+```sh
+npm run build
+npm test
+npm run preview
+```
 
-## Animasi
-animations.js mengatur kemunculan hero dan bagian saat scroll tanpa dependency. Durasi dan jarak ada pada fungsi enter. Efek hover/modal/FAQ berada di bagian akhir styles.css, dibatasi prefers-reduced-motion. JavaScript dimatikan atau dukungan animasi tidak tersedia: semua isi tetap terlihat. Sertakan animations.js saat upload ke hosting.
+Hasil build ada di `out/`. Preview hasil produksi: http://127.0.0.1:4175. `next start` tidak dipakai untuk output statis.
 
+Untuk membuat ZIP hosting lewat PowerShell:
+
+```powershell
+.\package-site.ps1
+```
+
+Unggah `release/velkira-sundays-hosting.zip` ke satu proyek Cloudflare Pages. Skrip hanya mengambil hasil build `out/`, memeriksa file wajib serta batas file, dan tidak menyertakan source, arsip, atau node_modules.
+
+Jika menggunakan Git integration Cloudflare Pages: build command `npm run build`, build output directory `out`. Root source Next.js tidak dapat langsung diunggah sebagai website statis. Panduan manual: [Hosting gratis](dokumen/10-hosting-gratis-cloudflare.md).
+
+## Luma Support — Workflow Assistant
+
+Demo interaktif tersedia di `/demos/luma-support/` dan ditautkan dari kartu Workflow Assistant. Navigasi Ringkasan, Inbox, dan Tiket dapat dicoba. Pilih salah satu dari tiga percakapan, jalankan simulasi atau tampilkan hasil langsung, lalu periksa tiket, ambil sebagai Admin Demo, simpan catatan tindak lanjut (5–280 karakter), dan tandai selesai. Catatan hanya disimpan dalam sesi browser; tidak dikirim ke pelanggan. Pencatatan ini untuk layanan pelanggan toko online umum, bukan penjualan atau stok. Ulangi skenario untuk menghapus hasil skenario itu, atau Ulangi Demo untuk mengembalikan seluruh data.
+
+- `app/demos/luma-support/`: halaman, komponen dashboard, CSS Module, skenario, dan reducer simulasi.
+- `dokumen/luma-support/BLUEPRINT.md`: PRD, arsitektur, model data, design system, checklist, dan hasil QA.
+- `tests/luma.test.mjs`: pengujian alur FAQ, pencatatan, eskalasi, reset, dan ekspor.
+
+Seluruh data fiktif dan respons pratulisan. Tidak ada AI aktif, backend, database, pengiriman pesan, atau penyimpanan lintas sesi. Memuat ulang halaman mengembalikan demo ke awal. JavaScript diperlukan untuk interaksi; mode tanpa JavaScript menyediakan penjelasan dan link kembali. Reduced motion langsung menampilkan hasil tanpa animasi bertahap.
+
+## Batas arsitektur
+
+`output: 'export'` tidak menjalankan API server, autentikasi server, atau fitur Next.js yang membutuhkan server saat request. Jika fitur itu benar-benar diperlukan nanti, ubah arsitektur deployment saat menambahnya. Website saat ini tidak membutuhkan backend, CMS, database, atau dependency animasi.
+
+Source statis sebelumnya disimpan di `dokumen/arsip/2026-10-25-sebelum-nextjs/`. Arsip untuk referensi; aset aktif berada di public/. Jangan ikut mengunggah arsip.

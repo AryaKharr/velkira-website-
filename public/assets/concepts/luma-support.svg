@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+  <rect width="1200" height="800" fill="#E8EDF8"/>
+  <circle cx="1030" cy="40" r="320" fill="#DCE5FC"/>
+  <circle cx="75" cy="820" r="260" fill="#D5DFFC"/>
+  <rect x="58" y="84" width="1084" height="632" rx="20" fill="#14213D" stroke="#CDD7EA"/>
+  <path d="M230 85h892a20 20 0 0 1 20 20v590a20 20 0 0 1-20 20H230Z" fill="#F4F6FA"/>
+  <g font-family="Arial,sans-serif">
+    <rect x="83" y="117" width="31" height="34" rx="9" fill="#345CFF"/>
+    <path d="m101 124-11 13h8l-2 8 11-14h-8l2-7Z" fill="white"/>
+    <text x="125" y="144" font-size="30" font-weight="700" fill="white">luma.</text>
+    <text x="87" y="176" font-size="8" letter-spacing="1.8" fill="#ACBEDD">SUPPORT WORKSPACE</text>
+    <rect x="79" y="215" width="132" height="46" rx="9" fill="#FFFFFF0D" stroke="#FFFFFF1A"/>
+    <text x="94" y="235" font-size="11" fill="white">Luma Store</text><text x="94" y="250" font-size="8" fill="#B3C4E4">Workspace contoh</text>
+    <text x="88" y="299" font-size="8" letter-spacing="1.5" fill="#ACBEDD">WORKSPACE</text>
+    <text x="99" y="339" font-size="12" fill="#BDCAE2">▦   Ringkasan</text>
+    <rect x="79" y="359" width="132" height="39" rx="8" fill="#345CFF"/>
+    <text x="99" y="384" font-size="12" fill="white">▣   Inbox</text><text x="185" y="383" font-size="10" fill="white">3</text>
+    <text x="99" y="428" font-size="12" fill="#BDCAE2">▱   Tiket</text>
+    <rect x="80" y="563" width="131" height="87" rx="10" fill="#FFFFFF09" stroke="#FFFFFF20"/>
+    <text x="93" y="583" font-size="7" letter-spacing="1.1" fill="#BCCDFF">DEMO INTERAKTIF</text>
+    <text x="93" y="605" font-size="14" fill="white">Alur nyata.</text><text x="93" y="624" font-size="14" fill="white">Data simulasi.</text>
+    <text x="90" y="682" font-size="9" fill="#BDCAE2">↖ Portfolio VELKIRA</text>
+    <path d="M231 133h909" stroke="#E2E7F0"/>
+    <text x="257" y="113" font-size="10" fill="#758199">Workspace / Inbox</text><circle cx="1021" cy="109" r="3" fill="#338467"/><text x="1031" y="113" font-size="9" fill="#6A7891">Sandbox mode</text>
+    <text x="257" y="169" font-size="8" letter-spacing="1.8" fill="#697992">LESS REPETITION. MORE CONNECTION.</text>
+    <text x="257" y="204" font-size="28" font-weight="700" letter-spacing="-.8" fill="#172033">Percakapan yang berarti.</text>
+    <text x="258" y="227" font-size="11" fill="#69758C">Dari pertanyaan pertama, sampai tindak lanjut yang tepat.</text>
+    <g fill="white" stroke="#E2E7F0"><rect x="257" y="250" width="203" height="89" rx="10"/><rect x="475" y="250" width="203" height="89" rx="10"/><rect x="693" y="250" width="203" height="89" rx="10"/><rect x="911" y="250" width="203" height="89" rx="10"/></g>
+    <g font-size="10" fill="#69758C"><text x="272" y="273">Percakapan contoh</text><text x="490" y="273">Tiket terbuka</text><text x="708" y="273">Perlu admin</text><text x="926" y="273">Selesai</text></g>
+    <g font-size="29" font-weight="700" fill="#172033"><text x="271" y="315">03</text><text x="489" y="315">02</text><text x="707" y="315">01</text><text x="925" y="315">01</text></g>
+    <rect x="257" y="360" width="857" height="309" rx="12" fill="white" stroke="#E2E7F0"/>
+    <path d="M473 360v309m405-309v309" stroke="#E2E7F0"/>
+    <text x="276" y="389" font-size="13" font-weight="700" fill="#172033">Inbox</text><text x="416" y="389" font-size="10" fill="#7B89A0">03</text>
+    <path d="M258 407h214" stroke="#E2E7F0"/>
+    <g font-size="11" fill="#172033"><text x="279" y="437">Alya Putri</text><text x="279" y="454" font-size="9" fill="#72809A">Informasi pengiriman</text><text x="279" y="499">Bima Aditya</text><text x="279" y="516" font-size="9" fill="#72809A">Pesanan belum sampai</text></g>
+    <rect x="258" y="539" width="214" height="85" fill="#F1F5FF"/><path d="M259 539v85" stroke="#345CFF" stroke-width="3"/>
+    <circle cx="288" cy="566" r="14" fill="#FCE9F0"/><text x="278" y="570" font-size="9" fill="#A95077">CM</text>
+    <text x="310" y="565" font-size="11" font-weight="700" fill="#172033">Citra Maharani</text><text x="310" y="582" font-size="9" fill="#72809A">Barang diterima rusak</text>
+    <rect x="310" y="593" width="67" height="19" rx="4" fill="#FEE4E2"/><text x="319" y="606" font-size="8" fill="#B42318">Perlu admin</text>
+    <text x="493" y="390" font-size="12" font-weight="700" fill="#172033">Citra Maharani</text><text x="493" y="408" font-size="9" fill="#78859B">Pesanan #LM-2403 · Pelanggan contoh</text>
+    <path d="M474 423h403" stroke="#E2E7F0"/>
+    <rect x="494" y="444" width="279" height="61" rx="10" fill="#F0F2F7"/><g font-size="11" fill="#465571"><text x="508" y="468">Paket sudah diterima, tetapi barangnya</text><text x="508" y="486">rusak. Bagaimana penanganannya?</text></g>
+    <text x="543" y="528" font-size="9" fill="#6E7E9A">Tiket #LM-003 dibuat · Prioritas tinggi</text>
+    <rect x="541" y="545" width="317" height="64" rx="10" fill="#345CFF"/>
+    <g font-size="11" fill="white"><text x="556" y="568">Keluhan sudah dicatat dan masuk antrean</text><text x="556" y="586">admin untuk ditinjau lebih lanjut.</text></g>
+    <text x="628" y="640" font-size="9" fill="#697A98">Respons pratulisan · Simulasi</text>
+    <text x="898" y="391" font-size="12" font-weight="700" fill="#172033">Workflow aktif</text><text x="899" y="410" font-size="9" fill="#78859B">Langkah kecil, respons yang tepat.</text>
+    <path d="M909 437v147" stroke="#C4D2FA" stroke-dasharray="3 4"/>
+    <g fill="#EDF1FF" stroke="#8099FF"><circle cx="909" cy="442" r="11"/><circle cx="909" cy="489" r="11"/><circle cx="909" cy="536" r="11"/><circle cx="909" cy="583" r="11"/></g>
+    <g font-size="9" fill="#345CFF"><text x="906" y="446">✓</text><text x="906" y="493">✓</text><text x="906" y="540">✓</text><text x="906" y="587">4</text></g>
+    <g font-size="10" fill="#344D84"><text x="930" y="446">Pesan diterima</text><text x="930" y="493">Kenali keluhan</text><text x="930" y="540">Buat tiket prioritas</text><text x="930" y="587">Eskalasi ke admin</text></g>
+    <text x="899" y="640" font-size="8" fill="#6C7F9F">Manusia tetap memegang kendali.</text>
+    <text x="263" y="697" font-size="9" fill="#7A89A1">luma.  A little flow. A lot of clarity.</text><text x="985" y="697" font-size="8" letter-spacing="1" fill="#627492">BY VELKIRA ↗</text>
+  </g>
+</svg>
