@@ -107,6 +107,6 @@ test('Static export contains the accessible demo, portfolio link, preview and ex
   for (const text of ['Luma Store', 'Jalankan simulasi', 'Data fiktif', 'Workflow aktif', 'Tanpa AI aktif', 'href="/#portofolio"', '<noscript>']) assert.ok(html.includes(text), text);
   const agency = await readFile(new URL('../out/index.html', import.meta.url), 'utf8');
   assert.ok(agency.includes('href="/demos/luma-support/"'));
-  assert.equal((agency.match(/data-project="luma"/g) || []).length, 1);
+  assert.match(agency, /class="atelier-project"[^>]*>[\s\S]*?Luma Support/);
   assert.ok((await readFile(new URL('../out/assets/concepts/luma-support.svg', import.meta.url), 'utf8')).includes('luma.'));
 });

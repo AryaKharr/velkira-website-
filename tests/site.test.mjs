@@ -33,24 +33,50 @@ test('Service, FAQ and navigation content has stable, distinct entries', () => {
   assert.equal(new Set(navigation.map(([, href]) => href)).size, navigation.length);
 });
 
-test('The static export includes the agency, Next assets, working anchors and SunDays', async () => {
+test('The static export includes the atelier landing page, working anchors and SunDays', async () => {
   const html = await readFile(path.join(root, 'out/index.html'), 'utf8');
+
+  // One h1
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
-  assert.equal((html.match(/data-project="sundays"/g) || []).length, 1);
+
+  // Next.js assets present
   assert.ok(html.includes('/_next/'));
-  assert.ok(/hero-spark/.test(html));
-  assert.ok(/floating-card/.test(html));
-  assert.ok(/blue-waves/.test(html));
-  assert.ok(/Company Profile/.test(html));
+
+  // Atelier hero content
+  assert.ok(/atelier-hero/i.test(html), 'Hero section should have atelier-hero class');
+  assert.ok(/atelier-showcase/i.test(html), 'Showcase tabs should be present');
+  assert.ok(/LabaRapi/.test(html), 'LabaRapi project should appear');
+  assert.ok(/Luma Support/.test(html), 'Luma Support project should appear');
+  assert.ok(/SunDays/.test(html), 'SunDays project should appear');
+
+  // No Lighthouse 100/100 claims or unproven duration promises
+  assert.ok(!/Lighthouse\s*100\/100/i.test(html), 'Should not claim Lighthouse 100/100');
+  assert.ok(!/sub-detik/i.test(html), 'Should not claim sub-second load');
+  assert.ok(!/5 hingga 14 hari kerja/i.test(html), 'Should not promise specific project duration');
+  assert.ok(!/garansi revisi/i.test(html), 'Should not promise revision guarantee');
+
+  // Portofolio distinguishes kinds
+  assert.ok(/Eksplorasi studio/.test(html), 'Should label studio explorations');
+  assert.ok(/Demo interaktif/.test(html), 'Should label interactive demos');
+
+  // No duplicate IDs
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
-  assert.equal(new Set(ids).size, ids.length);
-  for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(id), id);
+  assert.equal(new Set(ids).size, ids.length, 'IDs must be unique');
+
+  // Anchor targets resolve
+  for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) {
+    assert.ok(ids.includes(id), `Anchor #${id} must have a target`);
+  }
+
+  // Local asset references resolve
   for (const [, reference] of html.matchAll(/(?:src|href)="(\/[^"?#]*)/g)) {
     if (reference === '/') continue;
     const local = path.join(root, 'out', reference);
     const target = reference.endsWith('/') ? path.join(local, 'index.html') : local;
-    assert.ok((await stat(target)).isFile(), reference);
+    assert.ok((await stat(target)).isFile(), `Asset ${reference} must exist`);
   }
+
+  // SunDays demo
   const demo = await readFile(path.join(root, 'out/demos/sunsdays/index.html'), 'utf8');
   assert.ok(demo.includes('href="../../#portofolio"'));
   assert.ok(demo.includes('Foto konsep dibuat dengan AI'));
@@ -58,7 +84,7 @@ test('The static export includes the agency, Next assets, working anchors and Su
   assert.ok((await stat(path.join(root, 'out/demos/sunsdays/assets/hero-v1.webm'))).size > 0);
 });
 
-test('The exported site serves SunDays and rejects paths outside the build', async () => {
+test('The exported site serves pages and rejects paths outside the build', async () => {
   const server = spawn(process.execPath, ['scripts/preview.mjs'], { cwd: root, env: { ...process.env, PORT: '0' }, stdio: ['ignore', 'pipe', 'pipe'] });
   try {
     const url = await new Promise((resolve, reject) => {
@@ -70,13 +96,23 @@ test('The exported site serves SunDays and rejects paths outside the build', asy
       server.once('error', error => { clearTimeout(timeout); reject(error); });
       server.once('exit', code => { clearTimeout(timeout); reject(new Error(`Preview exited ${code}`)); });
     });
+
+    // Agency landing page
     const agency = await fetch(url);
     assert.equal(agency.status, 200);
-    assert.match(await agency.text(), /Ide besarmu/);
-    const demo = await fetch(url + '/demos/sunsdays/index.html');
-    assert.equal(demo.status, 200);
-    assert.match(await demo.text(), /SunDays/);
+    const agencyHtml = await agency.text();
+    assert.match(agencyHtml, /atelier-hero/);
+    assert.match(agencyHtml, /Velkira/);
+
+    // SunDays demo
+    const demoRes = await fetch(url + '/demos/sunsdays/index.html');
+    assert.equal(demoRes.status, 200);
+    assert.match(await demoRes.text(), /SunDays/);
+
+    // 404 for missing
     assert.equal((await fetch(url + '/missing.html')).status, 404);
+
+    // Path traversal blocked
     assert.equal((await fetch(url + '/..%2fREADME.md')).status, 403);
   } finally { server.kill(); }
 });

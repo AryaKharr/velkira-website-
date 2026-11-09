@@ -1,13 +1,32 @@
-import './globals.css';
-import { Inter, Manrope } from 'next/font/google';
+﻿import './globals.css';
+import localFont from 'next/font/local';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-body' });
-const manrope = Manrope({ subsets: ['latin'], display: 'swap', variable: '--font-heading' });
+const manrope = localFont({
+  src: './fonts/manrope-latin.woff2',
+  display: 'swap',
+  variable: '--font-body',
+  weight: '400 800',
+});
+
+const plusJakarta = localFont({
+  src: './fonts/plus-jakarta-sans-latin.woff2',
+  display: 'swap',
+  variable: '--font-heading',
+  weight: '500 800',
+});
+
+const playfair = localFont({
+  src: './fonts/playfair-display-italic-latin.woff2',
+  display: 'swap',
+  variable: '--font-serif',
+  weight: '400 600',
+  style: 'italic',
+});
 
 export const metadata = {
   title: 'Velkira — Website, otomatisasi & aplikasi web',
-  description: 'Velkira merancang dan mengembangkan website bisnis, otomatisasi, serta aplikasi web. Lihat proyek SunDays dan bahas kebutuhanmu.',
-  icons: { icon: '/assets/brand/mark.svg' },
+  description: 'Velkira merancang website, otomatisasi alur kerja, dan aplikasi bisnis. Jelajahi karya studio dan bahas proyekmu.',
+  icons: { icon: '/assets/atelier/logo-emblem.png' },
   openGraph: {
     title: 'Velkira — Desain dan pengembangan digital',
     description: 'Website, otomatisasi, dan aplikasi web. Dikerjakan dengan lingkup yang jelas.',
@@ -16,15 +35,15 @@ export const metadata = {
   },
 };
 
-export const viewport = { 
-  themeColor: '#080c0a',
+export const viewport = {
+  themeColor: '#f3eee7',
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${inter.variable} ${manrope.variable}`}>
+    <html lang="id" className={`${manrope.variable} ${plusJakarta.variable} ${playfair.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -42,7 +61,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body id="awal">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
