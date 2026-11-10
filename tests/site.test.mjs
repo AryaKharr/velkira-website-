@@ -48,6 +48,8 @@ test('The static export includes the atelier landing page, working anchors and S
   assert.ok(/LabaRapi/.test(html), 'LabaRapi project should appear');
   assert.ok(/Luma Support/.test(html), 'Luma Support project should appear');
   assert.ok(/SunDays/.test(html), 'SunDays project should appear');
+  assert.ok(/id="cara-kerja"/.test(html) && /Hasil: lingkup dan penawaran/.test(html), 'Process steps and their outcomes should appear');
+  assert.ok(/id="pertanyaan"/.test(html) && /Apakah domain dan hosting termasuk/.test(html), 'Practical FAQ should appear');
 
   // No Lighthouse 100/100 claims or unproven duration promises
   assert.ok(!/Lighthouse\s*100\/100/i.test(html), 'Should not claim Lighthouse 100/100');

@@ -1,5 +1,6 @@
 ﻿'use client';
 import { useState } from 'react';
+import { process, questions } from './content.mjs';
 import './home.css';
 
 const projects = [
@@ -39,7 +40,7 @@ export default function Home() {
   const [stage, setStage] = useState('Versi awal');
   const message = `Halo Velkira, saya ingin membahas proyek.\nKebutuhan: ${service}\nTahap: ${stage}\nMohon bantu tentukan lingkup, waktu, dan estimasi biayanya.`;
   const whatsapp = `https://wa.me/6285704834416?text=${encodeURIComponent(message)}`;
-  const links = [['Layanan', '#layanan'], ['Karya', '#portofolio'], ['Estimasi', '#estimasi'], ['Tentang', '#tentang'], ['Kontak', '#kontak']];
+  const links = [['Layanan', '#layanan'], ['Karya', '#portofolio'], ['Cara kerja', '#cara-kerja'], ['Estimasi', '#estimasi'], ['Tentang', '#tentang'], ['Kontak', '#kontak']];
 
   return (
     <div className="atelier" id="awal">
@@ -183,6 +184,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="atelier-section atelier-process" id="cara-kerja">
+          <div className="atelier-wrap">
+            <p className="atelier-kicker">CARA KERJA</p>
+            <div className="atelier-heading">
+              <h2>Setiap langkah jelas.<br /><em>Sejak percakapan pertama.</em></h2>
+              <p>Buka tiap tahap untuk melihat apa yang dibahas dan hasil yang bisa kamu periksa sebelum lanjut.</p>
+            </div>
+            <div className="atelier-process-list">
+              {process.map((step, i) => (
+                <details key={step.title} open={i === 0}>
+                  <summary><span>0{i + 1}</span><strong>{step.title}</strong><span className="atelier-process-icon" aria-hidden="true">＋</span></summary>
+                  <p>{step.text}</p>
+                  <p className="atelier-process-result">{step.result}</p>
+                </details>
+              ))}
+            </div>
+            <p className="atelier-process-note">Lingkup, biaya, jadwal, dan batas dukungan disepakati sebelum pengerjaan dimulai.</p>
+          </div>
+        </section>
+
         {/* 02 / PORTOFOLIO */}
         <section className="atelier-section atelier-wrap" id="portofolio">
           <p className="atelier-kicker">02 / KARYA TERPILIH</p>
@@ -262,6 +283,22 @@ export default function Home() {
             <strong>VELKIRA</strong>
             <span>Ideas move forward.</span>
             <p>Diskusikan kebutuhan, jadwal, dan bentuk kerja sama yang sesuai untuk proyekmu.</p>
+          </div>
+        </section>
+
+        <section className="atelier-section atelier-faq atelier-wrap" id="pertanyaan">
+          <p className="atelier-kicker">PERTANYAAN UMUM</p>
+          <div className="atelier-heading">
+            <h2>Sebelum mulai,<br /><em>kenali batas kerjanya.</em></h2>
+            <p>Jawaban singkat untuk hal yang biasanya perlu jelas sebelum sebuah proyek berjalan.</p>
+          </div>
+          <div className="atelier-process-list">
+            {[questions[0], questions[3], questions[5]].map(([question, answer]) => (
+              <details key={question}>
+                <summary><strong>{question}</strong><span className="atelier-process-icon" aria-hidden="true">＋</span></summary>
+                <p>{answer}</p>
+              </details>
+            ))}
           </div>
         </section>
 

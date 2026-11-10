@@ -30,10 +30,10 @@ export const services = [
 ];
 
 export const process = [
-  { title: 'Ceritakan kebutuhanmu', text: 'Kita bahas usahamu, siapa penggunanya, dan apa yang perlu dibantu.' },
-  { title: 'Sepakati pekerjaan', text: 'Halaman, fitur, biaya, jadwal, dan tanggung jawab ditulis sebelum mulai.' },
-  { title: 'Tinjau hasilnya', text: 'Rancangan dan pengembangan ditinjau bersama sesuai tahap yang disepakati.' },
-  { title: 'Uji, lalu serahkan', text: 'Fungsi diperiksa. Akses, panduan, dan batas dukungan dijelaskan saat serah terima.' },
+  { title: 'Ceritakan kebutuhanmu', text: 'Kita bahas usahamu, siapa penggunanya, dan apa yang perlu dibantu.', result: 'Hasil: kebutuhan dan tujuan proyek dirangkum.' },
+  { title: 'Sepakati pekerjaan', text: 'Halaman, fitur, biaya, jadwal, dan tanggung jawab ditulis sebelum mulai.', result: 'Hasil: lingkup dan penawaran yang bisa kamu tinjau.' },
+  { title: 'Tinjau hasilnya', text: 'Rancangan dan pengembangan ditinjau bersama sesuai tahap yang disepakati.', result: 'Hasil: umpan balikmu masuk sebelum tahap berikutnya.' },
+  { title: 'Uji, lalu serahkan', text: 'Fungsi diperiksa. Akses, panduan, dan batas dukungan dijelaskan saat serah terima.', result: 'Hasil: produk, akses, dan penjelasan serah terima.' },
 ];
 
 export const questions = [
