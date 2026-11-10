@@ -7,4 +7,5 @@ release/
 out/
 .npm-cache/
 .npm-cache-current/
-
+.vercel
+.env*
