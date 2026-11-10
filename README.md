@@ -94,12 +94,28 @@ Membuka server pengujian lokal di [http://127.0.0.1:4175](http://127.0.0.1:4175)
 
 ## 🌐 Panduan Deployment & Custom Domain
 
-### Deploy ke Vercel (Rekomendasi)
-1. Hubungkan repositori GitHub ini ke akun [Vercel](https://vercel.com).
-2. Framework otomatis terdeteksi sebagai **Next.js**.
-3. Klik **Deploy**.
-4. Di menu **Project Settings > Domains**, masukkan custom domain Anda (misal: `velkira.site`).
-5. Arahkan DNS record domain Anda ke IP Vercel (`76.76.21.21` untuk A record dan `cname.vercel-dns.com` untuk CNAME `www`).
+### Rilis cepat ke GitHub dan Vercel
+
+Jalankan dari root repo setelah perubahan selesai. `origin` adalah
+`AryaKharr/velkira-website-`; proyek Vercel untuk domain utama adalah
+`velkira-website` pada tim `aryas-projects-e3577003`.
+
+```powershell
+npm test
+npm run build
+git status --short
+git add <file-yang-diubah>
+git commit -m "Jelaskan perubahan"
+git push origin main
+vercel link --yes --project velkira-website  # cukup sekali per komputer
+vercel deploy --prod --yes
+```
+
+Deploy berhasil jika CLI menampilkan `readyState: READY` dan alias
+`https://www.velkira.site`. Buka domain tersebut tanpa login untuk memastikan
+perubahan terlihat. Simpan `.vercel/` dan `.env.local` hanya di komputer lokal;
+keduanya sudah diabaikan oleh Git. Jangan menambahkan log build atau aset lokal
+yang belum diperiksa ke commit.
 
 ---
 
