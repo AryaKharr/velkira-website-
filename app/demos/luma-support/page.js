@@ -2,14 +2,16 @@ import Dashboard from './Dashboard';
 
 export const metadata = {
   metadataBase: new URL('https://velkira.site'),
-  title: 'Luma Support — Workflow Assistant Demo | VELKIRA',
-  description: 'Coba simulasi layanan pelanggan Luma Support: jawaban FAQ, pencatatan tiket, dan eskalasi ke admin. Proyek konsep portfolio VELKIRA.',
+  title: 'Luma Support — Demo Alur Layanan Pelanggan | Velkira',
+  description: 'Coba simulasi layanan pelanggan Luma Support: jawaban pertanyaan umum, pencatatan tiket, dan eskalasi ke pengelola. Proyek konsep Velkira.',
+  alternates: { canonical: '/demos/luma-support/' },
   openGraph: {
-    title: 'Luma Support — Customer service, thoughtfully connected.',
-    description: 'Demo interaktif workflow layanan pelanggan oleh VELKIRA. Seluruh data fiktif; bukan AI atau layanan aktif.',
+    title: 'Luma Support — Demo Alur Layanan Pelanggan',
+    description: 'Demo interaktif layanan pelanggan oleh Velkira. Seluruh data fiktif; bukan AI atau layanan aktif.',
     type: 'website',
-    images: [{ url: '/assets/concepts/luma-support.svg', width: 1200, height: 800, alt: 'Preview dashboard Luma Support' }],
+    images: [{ url: '/assets/atelier/luma-support.png', alt: 'Tampilan demo percakapan pelanggan Luma Support' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/assets/atelier/luma-support.png'] },
 };
 
 export const viewport = { themeColor: '#14213d' };

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FAF9F6"/>
+  <circle cx="1060" cy="350" r="300" fill="#EDEAE3"/>
+  <circle cx="1060" cy="350" r="218" fill="none" stroke="#C2C6B8" stroke-width="1.5"/>
+  <circle cx="1060" cy="350" r="132" fill="none" stroke="#C2C6B8" stroke-width="1.5"/>
+  <g transform="translate(76 58) scale(.59)" fill="#242824">
+    <path d="M10 21h20L57 77 46 93zM64 56 83 20l-3 35-16 23z"/>
+    <path d="m81 0 4 13 13 4-13 4-4 13-4-13-13-4 13-4z"/>
+  </g>
+  <text x="155" y="111" fill="#242824" font-family="Arial,sans-serif" font-size="42" font-weight="700" letter-spacing="-2">VELKIRA</text>
+  <text x="79" y="176" fill="#687568" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="3">DIGITAL CREATIVE &amp; TECHNOLOGY STUDIO</text>
+  <line x1="80" y1="219" x2="1120" y2="219" stroke="#C2C6B8" stroke-width="1.5"/>
+  <text x="80" y="326" fill="#242824" font-family="Arial,sans-serif" font-size="60" font-weight="600" letter-spacing="-2">Digital yang memudahkan</text>
+  <text x="80" y="401" fill="#687568" font-family="Georgia,serif" font-size="65" font-style="italic">bisnis Anda.</text>
+  <text x="80" y="548" fill="#242824" font-family="Arial,sans-serif" font-size="25">Website · Otomatisasi · Aplikasi web</text>
+</svg>

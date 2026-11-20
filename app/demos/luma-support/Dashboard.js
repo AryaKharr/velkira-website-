@@ -95,7 +95,7 @@ export default function Dashboard() {
       </nav>
       <div className={s.sidebarBottom}>
         <div className={s.demoCard}><span><i /> DEMO INTERAKTIF</span><p>Alur nyata.<br />Data simulasi.</p><small>Tanpa AI aktif atau pesan yang dikirim ke pelanggan.</small></div>
-        <a className={s.backLink} href="/#portofolio">↖ <span>Portfolio VELKIRA</span></a>
+        <a className={s.backLink} href="/#portofolio">↖ <span>Portofolio Velkira</span></a>
         <div className={s.profile}><span>V</span><div><strong>VELKIRA Studio</strong><small>Concept & development</small></div></div>
       </div>
     </aside>
@@ -153,7 +153,7 @@ export default function Dashboard() {
 
         <div className={s.footer}><span><span className={s.footerLogo}>luma.</span> A little flow. A lot of clarity.</span><a href="/#portofolio">A concept by <strong>VELKIRA ↗</strong></a></div>
         <p className={s.srOnly} role="status" aria-live="polite">{scenario.label}: {statusFor(scenario, record).label}. {record.step === 3 ? 'Simulasi selesai.' : scenario.steps[record.step]}</p>
-        <noscript><p className={s.noScript}>Demo ini membutuhkan JavaScript untuk menjalankan simulasi. Seluruh percakapan merupakan contoh, bukan layanan pelanggan aktif. <a href="/#portofolio">Kembali ke portfolio VELKIRA</a>.</p></noscript>
+        <noscript><p className={s.noScript}>Demo ini membutuhkan JavaScript untuk menjalankan simulasi. Seluruh percakapan merupakan contoh, bukan layanan pelanggan aktif. <a href="/#portofolio">Kembali ke portofolio Velkira</a>.</p></noscript>
       </main>
     </div>
   </div>;

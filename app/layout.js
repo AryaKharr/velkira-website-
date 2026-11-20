@@ -24,19 +24,23 @@ const playfair = localFont({
 });
 
 export const metadata = {
-  title: 'Velkira — Website, otomatisasi & aplikasi web',
-  description: 'Velkira merancang website, otomatisasi alur kerja, dan aplikasi bisnis. Jelajahi karya studio dan bahas proyekmu.',
-  icons: { icon: '/assets/atelier/logo-emblem.png' },
+  metadataBase: new URL('https://velkira.site'),
+  title: 'Velkira — Studio Kreatif & Teknologi untuk Bisnis',
+  description: 'Velkira merancang website, otomatisasi alur kerja, dan aplikasi web sesuai kebutuhan usaha Anda. Lihat karya studio dan bahas proyek Anda.',
+  alternates: { canonical: '/' },
+  icons: { icon: '/assets/brand/mark.svg' },
   openGraph: {
-    title: 'Velkira — Desain dan pengembangan digital',
-    description: 'Website, otomatisasi, dan aplikasi web. Dikerjakan dengan lingkup yang jelas.',
+    title: 'Velkira — Studio Kreatif & Teknologi untuk Bisnis',
+    description: 'Website, otomatisasi alur kerja, dan aplikasi web sesuai kebutuhan usaha Anda.',
     type: 'website',
     locale: 'id_ID',
+    images: [{ url: '/assets/brand/velkira-og.png', width: 1200, height: 630, alt: 'Velkira — Digital yang memudahkan bisnis Anda' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/assets/brand/velkira-og.png'] },
 };
 
 export const viewport = {
-  themeColor: '#f3eee7',
+  themeColor: '#faf9f6',
   width: 'device-width',
   initialScale: 1,
 };

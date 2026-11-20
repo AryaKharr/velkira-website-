@@ -45,6 +45,9 @@ test('The static export includes the atelier landing page, working anchors and S
   // Atelier hero content
   assert.ok(/atelier-hero/i.test(html), 'Hero section should have atelier-hero class');
   assert.ok(/atelier-showcase/i.test(html), 'Showcase tabs should be present');
+  assert.ok(html.includes('DIGITAL CREATIVE &amp; TECHNOLOGY STUDIO'), 'Current studio identity should appear');
+  assert.ok(!html.includes('DIGITAL ATELIER'), 'Old studio identity should not appear');
+  assert.ok(html.includes('velkira-og.png'), 'Branded share image should be included');
   assert.ok(/LabaRapi/.test(html), 'LabaRapi project should appear');
   assert.ok(/Luma Support/.test(html), 'Luma Support project should appear');
   assert.ok(/SunDays/.test(html), 'SunDays project should appear');

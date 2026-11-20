@@ -30,15 +30,15 @@ export const services = [
 ];
 
 export const process = [
-  { title: 'Ceritakan kebutuhanmu', text: 'Kita bahas usahamu, siapa penggunanya, dan apa yang perlu dibantu.', result: 'Hasil: kebutuhan dan tujuan proyek dirangkum.' },
-  { title: 'Sepakati pekerjaan', text: 'Halaman, fitur, biaya, jadwal, dan tanggung jawab ditulis sebelum mulai.', result: 'Hasil: lingkup dan penawaran yang bisa kamu tinjau.' },
-  { title: 'Tinjau hasilnya', text: 'Rancangan dan pengembangan ditinjau bersama sesuai tahap yang disepakati.', result: 'Hasil: umpan balikmu masuk sebelum tahap berikutnya.' },
-  { title: 'Uji, lalu serahkan', text: 'Fungsi diperiksa. Akses, panduan, dan batas dukungan dijelaskan saat serah terima.', result: 'Hasil: produk, akses, dan penjelasan serah terima.' },
+  { title: 'Ceritakan kebutuhan Anda', text: 'Kita bahas usaha Anda, siapa penggunanya, dan apa yang perlu dibantu.', result: 'Hasil: kebutuhan dan tujuan proyek dirangkum.' },
+  { title: 'Sepakati pekerjaan', text: 'Halaman, fitur, biaya, jadwal, dan tanggung jawab ditulis sebelum mulai.', result: 'Hasil: lingkup dan penawaran yang bisa Anda tinjau.' },
+  { title: 'Tinjau rancangan', text: 'Rancangan dan pengembangan ditinjau bersama sesuai tahap yang disepakati.', result: 'Hasil: masukan Anda masuk sebelum tahap berikutnya.' },
+  { title: 'Uji, lalu serahkan', text: 'Fungsi diperiksa. Akses, panduan, dan batas dukungan dijelaskan saat serah terima.', result: 'Hasil: produk, akses, dan panduan penggunaan.' },
 ];
 
 export const questions = [
   ['Berapa biaya dan lama pengerjaannya?', 'Tergantung jumlah halaman, fitur, konten, dan integrasinya. Estimasi diberikan setelah kebutuhan dan lingkup pekerjaan jelas.'],
-  ['Belum tahu butuh website atau aplikasi?', 'Mulai dari cara kerja usahamu dan masalah yang ingin dibantu. Kita bahas pilihan yang sesuai sebelum menentukan pekerjaan.'],
+  ['Belum tahu butuh website atau aplikasi?', 'Mulai dari cara kerja usaha Anda dan masalah yang ingin dibantu. Kita bahas pilihan yang sesuai sebelum menentukan pekerjaan.'],
   ['Apa yang perlu saya siapkan?', 'Informasi usaha, layanan atau produk, logo, foto, dan referensi bila tersedia. Kebutuhan konten lainnya dibahas bersama.'],
   ['Apakah domain dan hosting termasuk?', 'Domain, hosting, pemeliharaan, dan kepemilikan akses dijelaskan dalam penawaran. Tidak otomatis termasuk biaya pengembangan.'],
   ['Apakah SunDays proyek klien?', 'SunDays adalah proyek konsep internal Velkira untuk memperlihatkan desain dan pengembangan website. Cafe, menu, dan harganya merupakan contoh.'],

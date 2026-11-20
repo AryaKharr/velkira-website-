@@ -1,46 +1,59 @@
 ﻿'use client';
-import { useState } from 'react';
-import { process, questions } from './content.mjs';
+import { useEffect, useRef, useState } from 'react';
+import { contact, process, questions } from './content.mjs';
 import './home.css';
 
 const projects = [
   {
     name: 'LabaRapi',
     kind: 'Eksplorasi studio',
-    tag: 'Aplikasi finansial',
+    tag: 'Aplikasi pengelolaan usaha',
     image: '/assets/atelier/labarapi-dashboard.png',
-    description: 'Rancangan aplikasi untuk membaca penjualan, biaya, dan margin dalam satu alur kerja.',
+    alt: 'Tampilan contoh ringkasan penjualan LabaRapi',
+    description: 'Konsep aplikasi yang menyatukan penjualan, biaya, dan margin agar pemilik usaha lebih mudah membaca kondisi bisnisnya.',
     href: '#kontak',
-    action: 'Bahas aplikasi serupa',
+    action: 'Bahas kebutuhan aplikasi',
   },
   {
     name: 'Luma Support',
     kind: 'Demo interaktif',
     tag: 'Alur layanan pelanggan',
     image: '/assets/atelier/luma-support.png',
-    description: 'Simulasi triase pesan pelanggan, pencatatan tiket, dan eskalasi ke pengelola.',
+    alt: 'Tampilan demo percakapan pelanggan Luma Support',
+    description: 'Demo bagaimana pertanyaan pelanggan dijawab, keluhan dicatat, lalu diteruskan kepada pengelola.',
     href: '/demos/luma-support/',
-    action: 'Coba demo',
+    action: 'Coba demo Luma',
   },
   {
     name: 'SunDays',
     kind: 'Demo interaktif',
-    tag: 'Website hospitality',
+    tag: 'Website kafe',
     image: '/assets/atelier/sunsdays-hero.jpg',
-    description: 'Website kafe dengan suasana editorial dan menu interaktif yang nyaman di ponsel.',
+    alt: 'Foto kopi pada konsep website SunDays',
+    description: 'Konsep website kafe dengan cerita visual, pilihan menu, dan tampilan yang dirancang untuk ponsel.',
     href: '/demos/sunsdays/',
-    action: 'Buka website',
+    action: 'Lihat demo SunDays',
   },
 ];
 
 export default function Home() {
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef(null);
   const [service, setService] = useState('Website & landing page');
   const [stage, setStage] = useState('Versi awal');
-  const message = `Halo Velkira, saya ingin membahas proyek.\nKebutuhan: ${service}\nTahap: ${stage}\nMohon bantu tentukan lingkup, waktu, dan estimasi biayanya.`;
-  const whatsapp = `https://wa.me/6285704834416?text=${encodeURIComponent(message)}`;
-  const links = [['Layanan', '#layanan'], ['Karya', '#portofolio'], ['Cara kerja', '#cara-kerja'], ['Estimasi', '#estimasi'], ['Tentang', '#tentang'], ['Kontak', '#kontak']];
+  const message = `Halo Velkira, saya ingin membahas proyek.\nKebutuhan: ${service}\nTahap: ${stage}\nMohon bantu tentukan lingkup, waktu, dan perkiraan biayanya.`;
+  const whatsapp = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(message)}`;
+  const links = [['Layanan', '#layanan'], ['Karya', '#portofolio'], ['Cara kerja', '#cara-kerja'], ['Rencanakan proyek', '#estimasi'], ['Tentang', '#tentang'], ['Kontak', '#kontak']];
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function closeOnEscape(event) {
+      if (event.key === 'Escape') { setMenuOpen(false); menuButton.current?.focus(); }
+    }
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [menuOpen]);
 
   return (
     <div className="atelier" id="awal">
@@ -50,22 +63,23 @@ export default function Home() {
       <header className="atelier-header">
         <div className="atelier-wrap atelier-nav">
           <a className="atelier-brand" href="#awal">
-            <img src="/assets/atelier/logo-emblem.png" width="40" height="40" alt="" />
-            <span>VELKIRA<small>DIGITAL ATELIER &amp; LAB</small></span>
+            <img src="/assets/brand/mark.svg" width="40" height="40" alt="" />
+            <span>VELKIRA<small>DIGITAL CREATIVE &amp; TECHNOLOGY STUDIO</small></span>
           </a>
           <nav className="atelier-links" aria-label="Navigasi utama">
             {links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
           </nav>
-          <a className="atelier-button atelier-nav-cta" href="#kontak">Bahas proyek ↗</a>
+          <a className="atelier-button atelier-nav-cta" href="#kontak">Bahas proyek <span aria-hidden="true">↗</span></a>
           <button
+            ref={menuButton}
             className="atelier-menu-button"
             type="button"
-            aria-label="Buka menu"
+            aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
             aria-expanded={menuOpen}
             aria-controls="atelier-mobile-menu"
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? '✕' : '☰'}
+            <span aria-hidden="true">{menuOpen ? '✕' : '☰'}</span>
           </button>
         </div>
         <nav
@@ -86,29 +100,27 @@ export default function Home() {
         {/* HERO */}
         <section className="atelier-hero atelier-wrap">
           <div className="atelier-hero-copy">
-            <p className="atelier-eyebrow">✦ VELKIRA STUDIO · IDEAS MOVE FORWARD</p>
+            <p className="atelier-eyebrow">STUDIO KREATIF &amp; TEKNOLOGI</p>
             <h1>
-              Karya digital berkarakter.<br />
-              <em>Dirancang presisi,</em><br />
-              dibangun untuk bekerja.
+              Digital yang memudahkan <em>bisnis Anda.</em>
             </h1>
             <p className="atelier-lead">
-              Kami merancang website, alur otomatisasi, dan aplikasi bisnis yang jelas kegunaannya serta nyaman dipakai.
+              Website, otomatisasi alur kerja, dan aplikasi web yang dirancang sesuai kebutuhan usaha Anda.
             </p>
             <div className="atelier-actions">
-              <a className="atelier-button" href="#kontak">Mulai diskusi proyek ↗</a>
-              <a className="atelier-button atelier-button-outline" href="#portofolio">Lihat karya ↓</a>
+              <a className="atelier-button" href="#kontak">Bahas proyek <span aria-hidden="true">↗</span></a>
+              <a className="atelier-button atelier-button-outline" href="#portofolio">Lihat karya <span aria-hidden="true">↓</span></a>
             </div>
             <p className="atelier-hero-note">
-              Dari konsep hingga rilis, lingkup dan hasil kerja dibahas langsung dengan studio.
+              We turn ideas into digital experiences.
             </p>
           </div>
 
           {/* SHOWCASE TABS */}
           <div className="atelier-showcase">
             <div className="atelier-showcase-top">
-              <span aria-hidden="true">● ● ●</span>
-              <span>STUDIO LAB / PREVIEW</span>
+              <span>VELKIRA / KARYA STUDIO</span>
+              <span>01 — 03</span>
             </div>
             <div className="atelier-tabs" role="tablist" aria-label="Pilih karya unggulan">
               {projects.map((project, i) => (
@@ -141,12 +153,12 @@ export default function Home() {
                 aria-labelledby={`atelier-tab-${i}`}
                 hidden={active !== i}
               >
-                <img src={project.image} width="1200" height="720" alt={`Pratinjau ${project.name}`} />
+                <img src={project.image} width="1200" height="720" alt={project.alt} />
                 <div className="atelier-panel-copy">
                   <span>{project.kind} · {project.tag}</span>
                   <strong>{project.name}</strong>
                   <p>{project.description}</p>
-                  <a href={project.href}>{project.action} ↗</a>
+                  <a href={project.href}>{project.action} <span aria-hidden="true">↗</span></a>
                 </div>
               </div>
             ))}
@@ -159,26 +171,26 @@ export default function Home() {
             <p className="atelier-kicker">01 / LAYANAN</p>
             <div className="atelier-heading">
               <h2>
-                Teknologi yang tepat.<br />
-                <em>Untuk pekerjaan nyata.</em>
+                Bentuk digital yang tepat.<br />
+                <em>Untuk kebutuhan nyata.</em>
               </h2>
-              <p>Kami mulai dari kebutuhan bisnis, lalu memilih bentuk produk yang paling masuk akal.</p>
+              <p>Setiap usaha punya cara kerja sendiri. Kami mulai dari tujuan Anda, lalu merancang solusi yang sesuai.</p>
             </div>
             <div className="atelier-service-grid">
               <article>
                 <span>01</span>
                 <h3>Website &amp; landing page</h3>
-                <p>Halaman bisnis dengan pesan yang jelas, tampilan khas brand, dan jalur kontak yang mudah ditemukan.</p>
+                <p>Jelaskan usaha Anda dengan baik dan bantu calon pelanggan menemukan cara menghubungi Anda.</p>
               </article>
               <article>
                 <span>02</span>
                 <h3>Otomatisasi alur kerja</h3>
-                <p>Alur untuk memilah permintaan, mengurangi pekerjaan berulang, dan meneruskan kasus yang membutuhkan manusia.</p>
+                <p>Catat permintaan masuk, kurangi pekerjaan berulang, dan teruskan hal penting kepada orang yang tepat.</p>
               </article>
               <article>
                 <span>03</span>
                 <h3>Aplikasi web</h3>
-                <p>Dashboard dan alat kerja yang mengikuti proses operasional, dari prototipe hingga rilis bertahap.</p>
+                <p>Satukan informasi dan pekerjaan harian dalam aplikasi yang mengikuti cara kerja tim Anda.</p>
               </article>
             </div>
           </div>
@@ -188,8 +200,8 @@ export default function Home() {
           <div className="atelier-wrap">
             <p className="atelier-kicker">CARA KERJA</p>
             <div className="atelier-heading">
-              <h2>Setiap langkah jelas.<br /><em>Sejak percakapan pertama.</em></h2>
-              <p>Buka tiap tahap untuk melihat apa yang dibahas dan hasil yang bisa kamu periksa sebelum lanjut.</p>
+              <h2>Jelas sejak<br /><em>percakapan pertama.</em></h2>
+              <p>Lihat apa yang dibahas dan hasil yang bisa Anda periksa di setiap tahap.</p>
             </div>
             <div className="atelier-process-list">
               {process.map((step, i) => (
@@ -200,7 +212,7 @@ export default function Home() {
                 </details>
               ))}
             </div>
-            <p className="atelier-process-note">Lingkup, biaya, jadwal, dan batas dukungan disepakati sebelum pengerjaan dimulai.</p>
+            <p className="atelier-process-note">Lingkup, biaya, jadwal, dan batas dukungan disepakati sebelum pekerjaan dimulai.</p>
           </div>
         </section>
 
@@ -209,21 +221,21 @@ export default function Home() {
           <p className="atelier-kicker">02 / KARYA TERPILIH</p>
           <div className="atelier-heading">
             <h2>
-              Bukti kerja yang<br />
-              <em>bisa kamu jelajahi.</em>
+              Lihat bagaimana ide<br />
+              <em>menjadi pengalaman.</em>
             </h2>
-            <p>Eksplorasi studio dan demo fungsional yang memperlihatkan cara kami merancang pengalaman digital.</p>
+            <p>Eksplorasi studio dan demo interaktif. Semuanya contoh pekerjaan, bukan klaim hasil proyek klien.</p>
           </div>
           <div className="atelier-project-grid">
             {projects.map(project => (
               <article className="atelier-project" key={project.name}>
-                <img src={project.image} width="1200" height="720" loading="lazy" alt={`Pratinjau ${project.name}`} />
+                <img src={project.image} width="1200" height="720" loading="lazy" alt={project.alt} />
                 <div>
                   <span className="atelier-project-kind">{project.kind}</span>
                   <span className="atelier-project-tag">{project.tag}</span>
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
-                  <a href={project.href}>{project.action} ↗</a>
+                  <a href={project.href}>{project.action} <span aria-hidden="true">↗</span></a>
                 </div>
               </article>
             ))}
@@ -234,14 +246,14 @@ export default function Home() {
         <section className="atelier-section atelier-estimate" id="estimasi">
           <div className="atelier-wrap atelier-estimate-grid">
             <div>
-              <p className="atelier-kicker">03 / MULAI DARI SINI</p>
+              <p className="atelier-kicker">03 / RENCANAKAN PROYEK</p>
               <h2>
-                Gambarkan proyekmu.<br />
-                <em>Kita tentukan lingkupnya.</em>
+                Mulai dari yang<br />
+                <em>sudah Anda tahu.</em>
               </h2>
               <p>
-                Pilih kebutuhan dan tahap pengerjaan. Ringkasannya bisa kamu kirim lewat WhatsApp;
-                estimasi biaya dan waktu diberikan setelah kebutuhan dibahas.
+                Pilih jenis kebutuhan dan tahap proyek Anda. Kirim ringkasannya lewat WhatsApp;
+                perkiraan biaya dan waktu kami bahas setelah lingkup pekerjaan jelas.
               </p>
             </div>
             <div className="atelier-estimate-card">
@@ -257,9 +269,10 @@ export default function Home() {
                 <option>Pengembangan lanjutan</option>
                 <option>Belum yakin</option>
               </select>
-              <p className="atelier-estimate-summary">{service} · {stage}</p>
+              <p className="atelier-estimate-summary">{service} <span aria-hidden="true">·</span> {stage}</p>
+              <p className="atelier-estimate-help">Belum perlu brief lengkap. Ceritakan usaha dan tujuan utama Anda dalam percakapan.</p>
               <a className="atelier-button" href={whatsapp} target="_blank" rel="noopener noreferrer">
-                Kirim ringkasan ke WhatsApp ↗
+                Bahas proyek lewat WhatsApp <span aria-hidden="true">↗</span>
               </a>
             </div>
           </div>
@@ -270,30 +283,30 @@ export default function Home() {
           <div>
             <p className="atelier-kicker">04 / TENTANG STUDIO</p>
             <h2>
-              Ruang untuk ide yang<br />
-              <em>perlu diwujudkan.</em>
+              Satu proses kerja.<br />
+              <em>Keputusan yang jelas.</em>
             </h2>
             <p>
-              Velkira menggabungkan arah visual dan rekayasa produk dalam satu proses kerja.
-              Kami menjelaskan keputusan desain, menyepakati lingkup, lalu menguji hasilnya sebelum rilis.
+              Di Velkira, desain dan pengembangan dibahas bersama sejak awal.
+              Anda dapat meninjau lingkup, rancangan, dan hasil pengujian sebelum produk dirilis.
             </p>
           </div>
           <div className="atelier-about-card">
-            <img src="/assets/atelier/logo-emblem.png" width="64" height="64" alt="Monogram Velkira" />
+            <img src="/assets/brand/mark.svg" width="64" height="64" alt="" />
             <strong>VELKIRA</strong>
-            <span>Ideas move forward.</span>
-            <p>Diskusikan kebutuhan, jadwal, dan bentuk kerja sama yang sesuai untuk proyekmu.</p>
+            <span>We turn ideas into digital experiences.</span>
+            <p>Digital Creative &amp; Technology Studio</p>
           </div>
         </section>
 
         <section className="atelier-section atelier-faq atelier-wrap" id="pertanyaan">
           <p className="atelier-kicker">PERTANYAAN UMUM</p>
           <div className="atelier-heading">
-            <h2>Sebelum mulai,<br /><em>kenali batas kerjanya.</em></h2>
-            <p>Jawaban singkat untuk hal yang biasanya perlu jelas sebelum sebuah proyek berjalan.</p>
+            <h2>Sebelum mulai,<br /><em>ketahui hal pentingnya.</em></h2>
+            <p>Jawaban ringkas untuk membantu Anda menyiapkan percakapan pertama.</p>
           </div>
           <div className="atelier-process-list">
-            {[questions[0], questions[3], questions[5]].map(([question, answer]) => (
+            {[questions[0], questions[2], questions[3], questions[5]].map(([question, answer]) => (
               <details key={question}>
                 <summary><strong>{question}</strong><span className="atelier-process-icon" aria-hidden="true">＋</span></summary>
                 <p>{answer}</p>
@@ -307,17 +320,17 @@ export default function Home() {
           <div className="atelier-wrap">
             <p className="atelier-kicker">05 / KONTAK</p>
             <h2>
-              Punya ide?<br />
-              <em>Mari buat langkah pertama.</em>
+              Ada yang ingin<br />
+              <em>Anda wujudkan?</em>
             </h2>
-            <p>Ceritakan usaha dan hasil yang ingin dicapai. Kami bantu memperjelas lingkupnya.</p>
+            <p>Ceritakan usaha dan tujuan Anda. Kami bantu menentukan langkah digital yang masuk akal.</p>
             <a
               className="atelier-button atelier-button-light"
-              href="https://wa.me/6285704834416?text=Halo%20Velkira%2C%20saya%20ingin%20membahas%20proyek%20digital."
+              href={`https://wa.me/${contact.whatsapp}?text=Halo%20Velkira%2C%20saya%20ingin%20membahas%20proyek%20digital.`}
               target="_blank"
               rel="noopener noreferrer"
             >
-              Hubungi lewat WhatsApp ↗
+              Bahas proyek lewat WhatsApp <span aria-hidden="true">↗</span>
             </a>
           </div>
         </section>
@@ -326,7 +339,8 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="atelier-footer">
         <div className="atelier-wrap">
-          <span>VELKIRA · DIGITAL ATELIER &amp; LAB</span>
+          <div><strong>VELKIRA</strong><span>Digital Creative &amp; Technology Studio</span></div>
+          <a href="#awal">Kembali ke atas <span aria-hidden="true">↑</span></a>
           <span>© 2026 Velkira</span>
         </div>
       </footer>
